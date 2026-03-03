@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "undeadvariants:block/husk_villager_head",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "undeadvariants:block/husk_villager_head"
+    },
+    "facing=south": {
+      "model": "undeadvariants:block/husk_villager_head",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "undeadvariants:block/husk_villager_head",
+      "y": 270
+    }
+  }
+}

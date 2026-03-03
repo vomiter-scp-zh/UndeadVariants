@@ -1,0 +1,17 @@
+{
+  "block.undeadvariants.drowned_villager_head": "沉屍村民頭顱",
+  "block.undeadvariants.drowned_villager_wall_head": "沉屍村民頭顱",
+  "block.undeadvariants.husk_villager_head": "屍殼村民頭顱",
+  "block.undeadvariants.husk_villager_wall_head": "屍殼村民頭顱",
+  "entity.undeadvariants.drowned_piglin": "沉屍豬布林",
+  "entity.undeadvariants.drowned_villager": "沉屍村民",
+  "entity.undeadvariants.husk_villager": "屍殼村民",
+  "entity.undeadvariants.zombie_wandering_trader": "殭屍流浪商人",
+  "entity.undeadvariants.zombified_piglin_brute": "殭屍化豬布林蠻兵",
+  "item.undeadvariants.drowned_piglin_spawn_egg": "沉屍豬布林 生怪蛋",
+  "item.undeadvariants.drowned_villager_spawn_egg": "沉屍村民 生怪蛋",
+  "item.undeadvariants.husk_villager_spawn_egg": "屍殼村民 生怪蛋",
+  "item.undeadvariants.zombie_wandering_trader_spawn_egg": "殭屍流浪商人 生怪蛋",
+  "item.undeadvariants.zombified_piglin_brute_spawn_egg": "殭屍化豬布林蠻兵 生怪蛋",
+  "itemGroup.undeadvariants": "異屍變骸"
+}

@@ -1,0 +1,17 @@
+{
+  "block.undeadvariants.drowned_villager_head": "Drowned Villager Head",
+  "block.undeadvariants.drowned_villager_wall_head": "Drowned Villager Head",
+  "block.undeadvariants.husk_villager_head": "Husk Villager Head",
+  "block.undeadvariants.husk_villager_wall_head": "Husk Villager Head",
+  "entity.undeadvariants.drowned_piglin": "Drowned Piglin",
+  "entity.undeadvariants.drowned_villager": "Drowned Villager",
+  "entity.undeadvariants.husk_villager": "Husk Villager",
+  "entity.undeadvariants.zombie_wandering_trader": "Zombie Wandering Trader",
+  "entity.undeadvariants.zombified_piglin_brute": "Zombified Piglin Brute",
+  "item.undeadvariants.drowned_piglin_spawn_egg": "Drowned Piglin Spawn Egg",
+  "item.undeadvariants.drowned_villager_spawn_egg": "Drowned Villager Spawn Egg",
+  "item.undeadvariants.husk_villager_spawn_egg": "Husk Villager Spawn Egg",
+  "item.undeadvariants.zombie_wandering_trader_spawn_egg": "Zombie Wandering Trader Spawn Egg",
+  "item.undeadvariants.zombified_piglin_brute_spawn_egg": "Zombified Piglin Spawn Egg",
+  "itemGroup.undeadvariants": "Undead Variants"
+}
