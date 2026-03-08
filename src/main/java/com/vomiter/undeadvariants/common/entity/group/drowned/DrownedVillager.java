@@ -2,12 +2,15 @@ package com.vomiter.undeadvariants.common.entity.group.drowned;
 
 import com.vomiter.mobcivics.api.client.IVillagerDataHolder;
 import com.vomiter.mobcivics.api.common.entity.IVillagerThreat;
+import com.vomiter.mobcivics.api.common.entity.IVillagerThreatEntity;
 import com.vomiter.undeadvariants.common.entity.ai.DrownedMeleeAttackGoalLike;
 import com.vomiter.undeadvariants.common.entity.conversion.trigger.ITransitionalEntity;
 import com.vomiter.undeadvariants.common.registry.HeadOwner;
 import com.vomiter.undeadvariants.common.registry.ModBlocks;
-import com.vomiter.undeadvariants.common.registry.ModItems;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
@@ -26,12 +29,11 @@ import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerData;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
-public class DrownedVillager extends ZombieVillager implements IDrownedLike, IVillagerThreat, IVillagerDataHolder {
+public class DrownedVillager extends ZombieVillager implements IDrownedLike, IVillagerThreatEntity, IVillagerDataHolder {
     final DrownedTrait drownedTrait;
     public DrownedVillager(EntityType<? extends ZombieVillager> type, Level level) {
         super(type, level);
@@ -150,7 +152,7 @@ public class DrownedVillager extends ZombieVillager implements IDrownedLike, IVi
 
 
     public static class DrowningZombieVillager
-            extends ZombieVillager implements IVillagerThreat, ITransitionalEntity<DrowningZombieVillager> {
+            extends ZombieVillager implements IVillagerThreatEntity, ITransitionalEntity<DrowningZombieVillager> {
 
         public DrowningZombieVillager(EntityType<? extends ZombieVillager> type, Level level) {
             super(type, level);
@@ -173,4 +175,25 @@ public class DrownedVillager extends ZombieVillager implements IDrownedLike, IVi
             return false;
         }
     }
+
+    public @NotNull SoundEvent getAmbientSound() {
+        return this.isInWater() ? SoundEvents.DROWNED_AMBIENT_WATER : SoundEvents.DROWNED_AMBIENT;
+    }
+
+    public @NotNull SoundEvent getHurtSound(@NotNull DamageSource p_32386_) {
+        return this.isInWater() ? SoundEvents.DROWNED_HURT_WATER : SoundEvents.DROWNED_HURT;
+    }
+
+    public @NotNull SoundEvent getDeathSound() {
+        return this.isInWater() ? SoundEvents.DROWNED_DEATH_WATER : SoundEvents.DROWNED_DEATH;
+    }
+
+    public @NotNull SoundEvent getStepSound() {
+        return SoundEvents.DROWNED_STEP;
+    }
+
+    public @NotNull SoundEvent getSwimSound() {
+        return SoundEvents.DROWNED_SWIM;
+    }
+
 }

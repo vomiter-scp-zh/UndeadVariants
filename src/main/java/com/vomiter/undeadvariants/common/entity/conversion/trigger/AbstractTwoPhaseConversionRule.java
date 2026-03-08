@@ -30,6 +30,12 @@ public abstract class AbstractTwoPhaseConversionRule<T extends Mob> implements I
         return TwoPhase.finish(level, entity, this);
     }
 
+    @Override
+    public void afterStart(ServerLevel level, T oldEntity, LivingEntity newEntity) {
+        ITwoPhaseConversionRule.super.afterStart(level, oldEntity, newEntity);
+
+    }
+
     /**
      * 內建 two-phase runner
      * 用 ITwoPhaseConversionRule 當參數，避免綁死 abstract class。
@@ -46,14 +52,15 @@ public abstract class AbstractTwoPhaseConversionRule<T extends Mob> implements I
 
             // 若 transitional 與目前 type 相同：不轉實體，只進入「PD tag 狀態」
             if (entity.getType() == rule.transitionalType()) {
+                rule.beforeStart(level, entity);
                 markConverting(rule, entity);
                 rule.afterStart(level, entity, entity);
                 return entity;
             }
 
+            rule.beforeStart(level, entity);
             LivingEntity converted = entity.convertTo(rule.transitionalType(), true);
             if (converted == null) return null;
-
             markConverting(rule, converted);
             rule.afterStart(level, entity, converted);
             return converted;

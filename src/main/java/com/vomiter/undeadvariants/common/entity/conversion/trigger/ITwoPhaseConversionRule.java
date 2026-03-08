@@ -52,7 +52,12 @@ public interface ITwoPhaseConversionRule<F extends Mob> {
     default void onConvertingTick(ServerLevel level, F entity) {}
 
     /** Stage A -> transitional 後（搬資料、初始化倒數顯示等） */
-    default void afterStart(ServerLevel level, F oldEntity, LivingEntity newEntity) {}
+    default void beforeStart(ServerLevel level, F oldEntity) {}
+    default void afterStart(ServerLevel level, F oldEntity, LivingEntity newEntity) {
+        newEntity.setXRot(oldEntity.getXRot());
+        newEntity.setYBodyRot(oldEntity.getYRot());
+        newEntity.setYHeadRot(oldEntity.getYHeadRot());
+    }
 
     LivingEntity startConversion(ServerLevel level, F entity);
 
@@ -62,7 +67,11 @@ public interface ITwoPhaseConversionRule<F extends Mob> {
     default void beforeFinish(ServerLevel level, F entity) {}
 
     /** Stage B -> final 後（搬資料、清理等） */
-    default void afterFinish(ServerLevel level, F oldEntity, LivingEntity newEntity) {}
+    default void afterFinish(ServerLevel level, F oldEntity, LivingEntity newEntity) {
+        newEntity.setXRot(oldEntity.getXRot());
+        newEntity.setYBodyRot(oldEntity.getYRot());
+        newEntity.setYHeadRot(oldEntity.getYHeadRot());
+    }
 
     default void setTimer(F from, int time) {
         from.getPersistentData().putInt(tagConvertTime(), time);

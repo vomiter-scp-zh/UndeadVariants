@@ -2,6 +2,7 @@ package com.vomiter.undeadvariants.common.entity.group;
 
 import com.vomiter.mobcivics.api.client.IVillagerDataHolder;
 import com.vomiter.mobcivics.api.common.entity.IVillagerThreat;
+import com.vomiter.mobcivics.api.common.entity.IVillagerThreatEntity;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.effect.MobEffects;
@@ -20,7 +21,7 @@ import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 
-public class ZombieWanderingTrader extends ZombieVillager implements IVillagerDataHolder, IVillagerThreat {
+public class ZombieWanderingTrader extends ZombieVillager implements IVillagerDataHolder, IVillagerThreatEntity {
     public ZombieWanderingTrader(EntityType<? extends ZombieVillager> p_34368_, Level p_34369_) {
         super(p_34368_, p_34369_);
         setVillagerData(new VillagerData(VillagerType.PLAINS, VillagerProfession.NITWIT, 5));

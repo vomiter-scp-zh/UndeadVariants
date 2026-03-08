@@ -1,13 +1,16 @@
 package com.vomiter.undeadvariants.common.entity.group.husk;
 
 import com.vomiter.mobcivics.api.client.IVillagerDataHolder;
-import com.vomiter.mobcivics.api.common.entity.IVillagerThreat;
+import com.vomiter.mobcivics.api.common.entity.IVillagerThreatEntity;
 import com.vomiter.undeadvariants.common.registry.HeadOwner;
 import com.vomiter.undeadvariants.common.registry.ModBlocks;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -19,7 +22,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class HuskVillager extends ZombieVillager implements IVillagerThreat, IVillagerDataHolder {
+public class HuskVillager extends ZombieVillager implements IVillagerThreatEntity, IVillagerDataHolder {
 
     public HuskVillager(EntityType<? extends ZombieVillager> type, Level level) {
         super(type, level);
@@ -81,5 +84,21 @@ public class HuskVillager extends ZombieVillager implements IVillagerThreat, IVi
     @Override
     public VillagerData mobcivics$getVillagerData() {
         return this.getVillagerData();
+    }
+
+    public @NotNull SoundEvent getAmbientSound() {
+        return SoundEvents.HUSK_AMBIENT;
+    }
+
+    public @NotNull SoundEvent getHurtSound(@NotNull DamageSource p_32903_) {
+        return SoundEvents.HUSK_HURT;
+    }
+
+    public @NotNull SoundEvent getDeathSound() {
+        return SoundEvents.HUSK_DEATH;
+    }
+
+    public @NotNull SoundEvent getStepSound() {
+        return SoundEvents.HUSK_STEP;
     }
 }
