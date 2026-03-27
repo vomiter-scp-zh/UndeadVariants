@@ -75,11 +75,9 @@ public class ZombieWanderingTrader extends ZombieVillager implements IVillagerDa
     }
 
     @Override
-    public boolean villagerFearEnabled(LivingEntity self) {
-        if (self instanceof Mob mob) return mob.getTarget() instanceof Villager;
-        return false;
+    public boolean villagerFearEnabled() {
+        return getTarget() instanceof Villager;
     }
-
 
     static class ZWTDrinkMilkGoal extends UseItemGoal<ZombieWanderingTrader>{
 

@@ -93,9 +93,8 @@ public class DrownedVillager extends ZombieVillager implements IDrownedLike, IVi
     }
 
     @Override
-    public boolean villagerFearEnabled(LivingEntity self) {
-        if(self instanceof Mob mob) return mob.getTarget() instanceof Villager;
-        return false;
+    public boolean villagerFearEnabled() {
+        return getTarget() instanceof Villager;
     }
 
     /** 1) 讓所有以 canAttack 為基礎的目標選擇先被擋掉 */

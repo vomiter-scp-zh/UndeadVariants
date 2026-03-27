@@ -17,6 +17,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.monster.ZombieVillager;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.npc.VillagerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -30,6 +31,11 @@ public class HuskVillager extends ZombieVillager implements IVillagerThreatEntit
 
     public static final EntityDataAccessor<Boolean> UV_CONVERTING =
             SynchedEntityData.defineId(HuskVillager.class, EntityDataSerializers.BOOLEAN);
+
+    @Override
+    public boolean villagerFearEnabled() {
+        return getTarget() instanceof Villager;
+    }
 
     @Override
     protected @NotNull ItemStack getSkull() {
